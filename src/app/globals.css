@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#f7f8fa;color:#172033;font-family:Arial,Helvetica,sans-serif}button{font:inherit}
+@layer components{.card{@apply rounded-2xl border border-slate-200/80 bg-white shadow-soft}.muted{@apply text-slate-500}}

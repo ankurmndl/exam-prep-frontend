@@ -1,0 +1,1 @@
+export default function ProgressBar({value,className=""}){return <div className={`h-2 overflow-hidden rounded-full bg-slate-100 ${className}`}><div className="h-full rounded-full bg-slate-900 transition-all duration-500" style={{width:`${Math.max(0,Math.min(100,value))}%`}}/></div>}
