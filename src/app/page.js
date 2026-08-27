@@ -16,6 +16,7 @@ import {
   CheckCircle2,
   Clock3,
   Target,
+  BrainCircuit,
 } from "lucide-react";
 
 import { exam, subjects } from "@/data/syllabus";
@@ -333,6 +334,55 @@ export default function Home() {
           </div>
 
         </section>
+
+                    <section className="mt-7">
+
+            <div className="card overflow-hidden p-5 sm:p-6">
+
+                <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+
+                <div className="flex items-start gap-4">
+
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-100">
+
+                    <BrainCircuit className="h-6 w-6" />
+
+                    </div>
+
+                    <div>
+
+                    <p className="text-sm font-medium text-slate-500">
+                        Maths · Half-Yearly
+                    </p>
+
+                    <h2 className="mt-1 text-lg font-bold">
+                        Lines & Angles Adaptive Test
+                    </h2>
+
+                    <p className="mt-1 text-sm text-slate-500">
+                        15 questions · 20 minutes · Questions adapt to performance
+                    </p>
+
+                    </div>
+
+                </div>
+
+                <Link
+                    href="/adaptive-test"
+                    className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white transition hover:bg-slate-800"
+                >
+
+                    Start Test
+
+                    <ArrowRight className="h-4 w-4" />
+
+                </Link>
+
+                </div>
+
+            </div>
+
+            </section>
 
         {/* BOTTOM INFORMATION */}
         <section className="mt-7 grid gap-5 lg:grid-cols-2">
