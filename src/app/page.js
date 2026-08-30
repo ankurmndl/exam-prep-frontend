@@ -1404,6 +1404,14 @@ export default function Home() {
           </div>
         </section>
 
+        <Link
+          href="/attempts"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-3 font-semibold transition hover:bg-slate-50"
+        >
+          View Attempts
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+
         {/* BOTTOM INFORMATION */}
         <section className="mt-7 grid gap-5 lg:grid-cols-2">
           {/* RECENTLY PREPARED */}

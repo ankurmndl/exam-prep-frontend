@@ -81,3 +81,18 @@ export async function getExamAttempt(attemptId) {
 
   return data;
 }
+
+export async function getExamAttempts() {
+  const { data, error } = await supabase
+    .from("exam_attempts")
+    .select("*")
+    .eq("student_id", STUDENT_ID)
+    .order("started_at", { ascending: false });
+
+  if (error) {
+    console.error("Error loading exam attempts:", error);
+    return [];
+  }
+
+  return data || [];
+}
