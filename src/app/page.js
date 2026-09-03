@@ -1401,6 +1401,18 @@ export default function Home() {
               duration="2½ hours"
               href="/physics-test"
             />
+
+             <TestCard
+              subject="Mathematics"
+              topic="Physics · Half-Yearly"
+              title="Full Question Paper"
+              description="All Chapters"
+              questions={33}
+              marks={80}
+              duration="2½ hours"
+              href="/maths-test"
+            />
+
           </div>
         </section>
 
