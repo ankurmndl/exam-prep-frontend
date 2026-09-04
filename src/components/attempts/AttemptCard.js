@@ -128,19 +128,10 @@ function formatDate(date) {
   }).format(new Date(date));
 }
 
-function getResultUrl(attempt) {
-  if (attempt.exam_key === "maths_half_yearly") {
-    return `/maths-test/results/${attempt.id}`;
-  }
-
-  if (attempt.exam_key === "physics_half_yearly") {
-    return `/physics-test/results/${attempt.id}`;
-  }
-
-  return "#";
-}
-
-export default function AttemptCard({ attempt }) {
+export default function AttemptCard({
+  attempt,
+  resultBasePath,
+}) {
   const isSubmitted = attempt.status === "submitted";
 
   return (
@@ -222,19 +213,13 @@ export default function AttemptCard({ attempt }) {
       </div>
 
       <div className="mt-5 border-t border-slate-100 pt-4">
-        {isSubmitted && getResultUrl(attempt) !== "#" ? (
-          <Link
-            href={getResultUrl(attempt)}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:underline"
-          >
-            View Attempt
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        ) : (
-          <span className="text-sm font-medium text-slate-400">
-            Attempt not submitted
-          </span>
-        )}
+        <Link
+          href={`${resultBasePath}/${attempt.id}`}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:underline"
+        >
+          View Attempt
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
     </div>
   );
