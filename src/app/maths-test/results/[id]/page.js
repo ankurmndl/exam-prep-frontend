@@ -10,13 +10,13 @@ import {
 } from "lucide-react";
 
 import {
-  physicsExam,
-  physicsQuestions,
-} from "@/data/physicsQuestionPaper";
+  mathsExam,
+  mathsQuestions,
+} from "@/data/mathsQuestionPaper";
 
 import { getExamAttempt } from "@/lib/examAttempts";
 
-export default function PhysicsResultPage({ params }) {
+export default function MathsResultPage({ params }) {
   const [attempt, setAttempt] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -34,12 +34,10 @@ export default function PhysicsResultPage({ params }) {
   const answeredCount = useMemo(() => {
     if (!attempt) return 0;
 
-    return physicsQuestions.filter(
+    return mathsQuestions.filter(
       (question) =>
         attempt.answers?.[question.id] &&
-        String(
-          attempt.answers[question.id]
-        ).trim() !== ""
+        String(attempt.answers[question.id]).trim() !== ""
     ).length;
   }, [attempt]);
 
@@ -95,11 +93,11 @@ export default function PhysicsResultPage({ params }) {
               </p>
 
               <h1 className="text-2xl font-bold">
-                {physicsExam.title}
+                {mathsExam.title}
               </h1>
 
               <p className="mt-1 text-sm text-slate-500">
-                {physicsExam.subtitle}
+                {mathsExam.subtitle}
               </p>
             </div>
           </div>
@@ -111,7 +109,7 @@ export default function PhysicsResultPage({ params }) {
               </div>
 
               <div className="mt-1 text-2xl font-bold">
-                {answeredCount}/33
+                {answeredCount}/{mathsQuestions.length}
               </div>
             </div>
 
@@ -166,14 +164,14 @@ export default function PhysicsResultPage({ params }) {
           </h2>
 
           <div className="space-y-4">
-            {physicsQuestions.map((question) => (
+            {mathsQuestions.map((question, index) => (
               <div
                 key={question.id}
                 className="card p-5"
               >
                 <div className="flex justify-between gap-4">
                   <span className="font-semibold">
-                    Question {question.id}
+                    Question {index + 1}
                   </span>
 
                   <span className="text-sm text-slate-500">
